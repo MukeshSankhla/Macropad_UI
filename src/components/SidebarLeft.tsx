@@ -1,5 +1,4 @@
-import React from 'react';
-import { Plus, Copy, Trash2, GripVertical } from 'lucide-react';
+import { Plus, Trash2, GripVertical } from 'lucide-react';
 import { useConfig } from '../ConfigContext';
 import { presetWindowsMode, presetMacOSMode, presetLinuxMode, presetMediaMode, presetVSCodeMode } from '../types';
 

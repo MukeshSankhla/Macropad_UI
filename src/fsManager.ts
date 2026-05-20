@@ -12,10 +12,12 @@ export class FSManager {
 
   async connect(): Promise<boolean> {
     try {
-      this.directoryHandle = await window.showDirectoryPicker({
+      this.directoryHandle = await (window as any).showDirectoryPicker({
         mode: 'readwrite',
       });
-      this.directoryName = this.directoryHandle.name;
+      if (this.directoryHandle) {
+        this.directoryName = this.directoryHandle.name;
+      }
       return true;
     } catch (e) {
       console.error("Failed to connect to directory", e);
