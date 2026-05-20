@@ -11,8 +11,8 @@ export class SerialManager {
     try {
       this.port = await navigator.serial.requestPort();
       await this.port.open({ baudRate: 115200 });
-      this.writer = this.port!.writable.getWriter();
-      this.reader = this.port!.readable.getReader();
+      this.writer = this.port!.writable!.getWriter();
+      this.reader = this.port!.readable!.getReader();
       return true;
     } catch (err) {
       console.error("Serial connection failed:", err);
