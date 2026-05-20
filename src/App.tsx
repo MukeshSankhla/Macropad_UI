@@ -119,7 +119,7 @@ function AppContent() {
       {/* Top Navigation Bar */}
       <header className="h-14 bg-white border-b border-zinc-200 flex items-center justify-between px-6 z-30 shadow-sm">
         <div className="flex items-center gap-2">
-          <img src="/favicon.svg" alt="Logo" className="w-8 h-8 object-contain drop-shadow-sm" />
+          <img src="./favicon.svg" alt="Logo" className="w-8 h-8 object-contain drop-shadow-sm" />
           <h1 className="text-2xl font-bold tracking-wider text-gray-500" style={{ fontFamily: "'Lulu', cursive" }}>MACROPAD</h1>
         </div>
 
