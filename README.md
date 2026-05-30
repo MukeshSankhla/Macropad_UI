@@ -1,73 +1,62 @@
-# React + TypeScript + Vite
+# MACROPAD
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Macropad](images/IM1.JPG)
 
-Currently, two official plugins are available:
+Most macropads today rely on custom PCBs and fixed firmware, which makes them difficult to modify, repair, or customize. For this project, I wanted to build something more accessible, modular, and maker-friendly while still looking and feeling like a premium device.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This project encompasses both the physical Macropad (powered by the DFRobot Beetle RP2350 and CircuitPython) and a React + Vite UI for configuring and managing your macros.
 
-## React Compiler
+For the complete hardware build guide, CAD designs, and step-by-step assembly, check out the full article on Instructables:
+**[MACROPAD on Instructables](https://www.instructables.com/MACROPAD/)**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Gallery
 
-## Expanding the ESLint configuration
+Here are some pictures of the Macropad and its interface:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+![Macropad 2](images/IM2.JPG)
+<br>
+![UI 3](images/IM3.png)
+<br>
+![UI 4](images/IM4.png)
+<br>
+![Macropad 5](images/IM5.JPG)
+<br>
+![Macropad 6](images/IM6.JPG)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## How to Setup and Run the UI
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+This repository contains the configuration UI for the Macropad, built with React, TypeScript, Vite, and TailwindCSS.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v16 or higher recommended)
+- npm (comes with Node.js)
+
+### Installation
+
+1. Open a terminal in the project directory (`Macropad_UI`).
+2. Install the required dependencies:
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Running the Development Server
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+To start the app locally:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+The app will be available at `http://localhost:5173` (or the port specified in your terminal).
+
+### Building for Production
+
+To build the application for production, run:
+
+```bash
+npm run build
+```
+
+This will generate an optimized production build in the `dist` folder.
