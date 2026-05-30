@@ -129,3 +129,79 @@ export const presetMediaMode: Mode = {
     { short_label: 'OVR', label: 'Media Overlay', action_type: 'none', action_value: [] },
   ]
 };
+
+export const presetFusion360Mode: Mode = {
+  name: 'Fusion 360',
+  icon: 'F360',
+  enc_label: 'ZOOM',
+  enc_cw: { action_type: 'mouse', action_value: 'SCROLL_UP' },
+  enc_ccw: { action_type: 'mouse', action_value: 'SCROLL_DOWN' },
+  keys: [
+    { short_label: 'SKCH', label: 'Sketch', action_type: 'shortcut', action_value: ['S'] },
+    { short_label: 'EXTR', label: 'Extrude', action_type: 'shortcut', action_value: ['E'] },
+    { short_label: 'FILL', label: 'Fillet', action_type: 'shortcut', action_value: ['F'] },
+    { short_label: 'PULL', label: 'Press Pull', action_type: 'shortcut', action_value: ['Q'] },
+    { short_label: 'MEAS', label: 'Measure', action_type: 'shortcut', action_value: ['I'] },
+    { short_label: 'PROJ', label: 'Project Geometry', action_type: 'shortcut', action_value: ['P'] },
+    { short_label: 'FIT', label: 'Fit View', action_type: 'shortcut', action_value: ['SHIFT', 'F'] },
+    { short_label: 'SECT', label: 'Section Analysis', action_type: 'shortcut', action_value: ['ALT', 'S'] },
+    { short_label: 'SHOT', label: 'Capture Screenshot', action_type: 'shortcut', action_value: ['CONTROL', 'SHIFT', 'S'] },
+  ]
+};
+
+export const presetDaVinciMode: Mode = {
+  name: 'DaVinci Resolve',
+  icon: 'RESL',
+  enc_label: 'ZOOM',
+  enc_cw: { action_type: 'mouse', action_value: 'SCROLL_UP' },
+  enc_ccw: { action_type: 'mouse', action_value: 'SCROLL_DOWN' },
+  keys: [
+    { short_label: 'BLAD', label: 'Blade Tool', action_type: 'shortcut', action_value: ['B'] },
+    { short_label: 'SEL', label: 'Selection Tool', action_type: 'shortcut', action_value: ['A'] },
+    { short_label: 'SPLT', label: 'Split Clip', action_type: 'shortcut', action_value: ['CONTROL', 'B'] },
+    { short_label: 'MARK', label: 'Add Marker', action_type: 'shortcut', action_value: ['M'] },
+    { short_label: 'DGAP', label: 'Delete Gap', action_type: 'shortcut', action_value: ['BACKSPACE'] },
+    { short_label: 'RIPL', label: 'Ripple Delete', action_type: 'shortcut', action_value: ['SHIFT', 'BACKSPACE'] },
+    { short_label: 'FULL', label: 'Full Screen', action_type: 'shortcut', action_value: ['CONTROL', 'F'] },
+    { short_label: 'INSP', label: 'Toggle Inspector', action_type: 'shortcut', action_value: ['SHIFT', 'FOUR'] },
+    { short_label: 'REND', label: 'Render Queue', action_type: 'shortcut', action_value: ['SHIFT', 'EIGHT'] },
+  ]
+};
+
+export const presetPhotoshopMode: Mode = {
+  name: 'Photoshop',
+  icon: 'PS',
+  enc_label: 'BRSH',
+  enc_cw: { action_type: 'shortcut', action_value: 'RIGHT_BRACKET' },
+  enc_ccw: { action_type: 'shortcut', action_value: 'LEFT_BRACKET' },
+  keys: [
+    { short_label: 'BRSH', label: 'Brush Tool', action_type: 'shortcut', action_value: ['B'] },
+    { short_label: 'ERAS', label: 'Eraser', action_type: 'shortcut', action_value: ['E'] },
+    { short_label: 'MOVE', label: 'Move Tool', action_type: 'shortcut', action_value: ['V'] },
+    { short_label: 'CLON', label: 'Clone Stamp', action_type: 'shortcut', action_value: ['S'] },
+    { short_label: 'TRNS', label: 'Free Transform', action_type: 'shortcut', action_value: ['CONTROL', 'T'] },
+    { short_label: 'NLAY', label: 'New Layer', action_type: 'shortcut', action_value: ['CONTROL', 'SHIFT', 'N'] },
+    { short_label: 'MRGE', label: 'Merge Visible', action_type: 'shortcut', action_value: ['CONTROL', 'SHIFT', 'ALT', 'E'] },
+    { short_label: 'SUBJ', label: 'Select Subject', action_type: 'shortcut', action_value: ['CONTROL', 'ALT', 'SHIFT', 'W'] },
+    { short_label: 'SAVE', label: 'Save for Web', action_type: 'shortcut', action_value: ['CONTROL', 'ALT', 'SHIFT', 'S'] },
+  ]
+};
+
+export const presetPremiereMode: Mode = {
+  name: 'Premiere Pro',
+  icon: 'PR',
+  enc_label: 'ZOOM',
+  enc_cw: { action_type: 'shortcut', action_value: 'EQUALS' },
+  enc_ccw: { action_type: 'shortcut', action_value: 'MINUS' },
+  keys: [
+    { short_label: 'RAZR', label: 'Razor Tool', action_type: 'shortcut', action_value: ['C'] },
+    { short_label: 'SEL', label: 'Selection Tool', action_type: 'shortcut', action_value: ['V'] },
+    { short_label: 'EDIT', label: 'Add Edit', action_type: 'shortcut', action_value: ['CONTROL', 'K'] },
+    { short_label: 'RIPL', label: 'Ripple Delete', action_type: 'shortcut', action_value: ['SHIFT', 'DELETE'] },
+    { short_label: 'EXPT', label: 'Export Media', action_type: 'shortcut', action_value: ['CONTROL', 'M'] },
+    { short_label: 'NEST', label: 'Nest Sequence', action_type: 'none', action_value: [] },
+    { short_label: 'FULL', label: 'Toggle Full Screen', action_type: 'shortcut', action_value: ['GRAVE'] },
+    { short_label: 'MARK', label: 'Add Marker', action_type: 'shortcut', action_value: ['M'] },
+    { short_label: 'REND', label: 'Render In to Out', action_type: 'shortcut', action_value: ['ENTER'] },
+  ]
+};

@@ -1,12 +1,14 @@
-import { Plus, Trash2, GripVertical } from 'lucide-react';
+import { useState } from 'react';
+import { Plus, Trash2, GripVertical, Menu } from 'lucide-react';
 import { useConfig } from '../ConfigContext';
-import { presetWindowsMode, presetMacOSMode, presetLinuxMode, presetMediaMode, presetVSCodeMode } from '../types';
+import { presetWindowsMode, presetMacOSMode, presetLinuxMode, presetMediaMode, presetVSCodeMode, presetFusion360Mode, presetDaVinciMode, presetPhotoshopMode, presetPremiereMode } from '../types';
 
 export const SidebarLeft = () => {
   const { modes, activeModeIndex, setActiveModeIndex, addMode, deleteMode } = useConfig();
+  const [showPresetsMobile, setShowPresetsMobile] = useState(false);
 
   return (
-    <div className="w-64 bg-white border-r border-zinc-200 h-full flex flex-col shadow-sm z-20">
+    <div className="w-full md:w-64 bg-white border-b md:border-b-0 md:border-r border-zinc-200 h-auto md:h-full shrink-0 flex flex-col shadow-sm z-20">
       <div className="p-4 border-b border-zinc-100 flex justify-between items-center bg-zinc-50/50">
         <h2 className="font-bold text-zinc-800 text-sm tracking-wide uppercase">Modes</h2>
         <button 
@@ -55,14 +57,26 @@ export const SidebarLeft = () => {
       </div>
 
       <div className="p-4 border-t border-zinc-100 bg-zinc-50/50">
-        <h3 className="text-xs font-semibold text-zinc-500 mb-2 uppercase tracking-wide">Add Preset Mode</h3>
-        <div className="flex flex-col gap-2">
+        <div className="flex justify-between items-center mb-2">
+          <h3 className="text-xs font-semibold text-zinc-500 uppercase tracking-wide">Add Preset Mode</h3>
+          <button 
+            onClick={() => setShowPresetsMobile(!showPresetsMobile)}
+            className="md:hidden p-1 text-zinc-400 hover:text-blue-600 hover:bg-zinc-200 rounded transition-colors"
+          >
+            <Menu size={16} />
+          </button>
+        </div>
+        <div className={`flex-col gap-2 ${showPresetsMobile ? 'flex' : 'hidden'} md:flex`}>
           {[
             { preset: presetWindowsMode, label: 'Windows' },
             { preset: presetMacOSMode, label: 'macOS' },
             { preset: presetLinuxMode, label: 'Linux' },
             { preset: presetMediaMode, label: 'Media' },
             { preset: presetVSCodeMode, label: 'VS Code' },
+            { preset: presetFusion360Mode, label: 'Fusion 360' },
+            { preset: presetDaVinciMode, label: 'DaVinci Resolve' },
+            { preset: presetPhotoshopMode, label: 'Photoshop' },
+            { preset: presetPremiereMode, label: 'Premiere Pro' },
           ].map(({ preset, label }) => {
             const exists = modes.some(m => m.name === preset.name);
             return (

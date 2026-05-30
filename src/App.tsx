@@ -123,20 +123,20 @@ function AppContent() {
           <h1 className="text-2xl font-bold tracking-wider text-gray-500" style={{ fontFamily: "'Lulu', cursive" }}>MACROPAD</h1>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex flex-1 items-center justify-end gap-2 sm:gap-4 overflow-x-auto no-scrollbar">
           <a
             href="https://www.instructables.com/MACROPAD/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-semibold text-white transition-all bg-gradient-to-r from-gray-500 to-gray-500 hover:from-green-600 hover:to-green-600 shadow-md hover:shadow-lg"
+            className="hidden md:flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-semibold text-white transition-all bg-gradient-to-r from-gray-500 to-gray-500 hover:from-green-600 hover:to-green-600 shadow-md hover:shadow-lg shrink-0"
           >
             <FileText size={16} className="text-white" />
             Build Your Own <span style={{ fontFamily: "'Lulu', cursive", letterSpacing: "1px" }}>MACROPAD</span>
           </a>
 
-          <div className="w-px h-6 bg-zinc-300 hidden md:block"></div>
+          <div className="w-px h-6 bg-zinc-300 hidden md:block shrink-0"></div>
 
-          <div className="flex items-center gap-2 bg-zinc-100 rounded-lg p-1">
+          <div className="flex items-center gap-1 sm:gap-2 bg-zinc-100 rounded-lg p-1 shrink-0">
             <button onClick={exportConfig} className="p-1.5 text-zinc-600 hover:text-blue-600 hover:bg-white rounded transition-colors" title="Export Profile">
               <Download size={18} />
             </button>
@@ -152,32 +152,32 @@ function AppContent() {
             </button>
           </div>
 
-          <div className="w-px h-6 bg-zinc-300"></div>
+          <div className="w-px h-6 bg-zinc-300 shrink-0"></div>
 
           <select
             value={os}
             onChange={(e) => setOs(e.target.value as 'win' | 'mac' | 'linux')}
-            className="text-sm bg-zinc-100 border border-zinc-200 rounded py-1 px-2 focus:outline-none focus:ring-2 focus:ring-blue-500/20 cursor-pointer text-zinc-700 font-medium"
+            className="text-sm bg-zinc-100 border border-zinc-200 rounded py-1 px-1 sm:px-2 focus:outline-none focus:ring-2 focus:ring-blue-500/20 cursor-pointer text-zinc-700 font-medium shrink-0"
           >
-            <option value="win">Windows</option>
+            <option value="win">Win</option>
             <option value="mac">Mac</option>
             <option value="linux">Linux</option>
           </select>
 
-          <div className="w-px h-6 bg-zinc-300"></div>
+          <div className="w-px h-6 bg-zinc-300 shrink-0"></div>
 
-          <div className={`flex items-center rounded-full transition-colors ${isConnected ? 'bg-green-100 text-green-700' : 'bg-zinc-800 text-white'}`}>
+          <div className={`flex items-center rounded-full transition-colors shrink-0 ${isConnected ? 'bg-green-100 text-green-700' : 'bg-zinc-800 text-white'}`}>
             <button
               onClick={handleConnect}
-              className={`flex items-center gap-2 pl-4 pr-3 py-1.5 rounded-l-full text-sm font-semibold hover:bg-black/10 transition-colors`}
+              className={`flex items-center gap-1 sm:gap-2 pl-3 sm:pl-4 pr-2 sm:pr-3 py-1.5 rounded-l-full text-xs sm:text-sm font-semibold hover:bg-black/10 transition-colors`}
             >
               <Usb size={16} />
-              {isConnected ? `Connected: ${directoryName}` : 'Connect'}
+              <span className="hidden sm:inline">{isConnected ? `Connected: ${directoryName}` : 'Connect'}</span>
             </button>
             <div className={`w-px h-4 ${isConnected ? 'bg-green-700/20' : 'bg-white/20'}`}></div>
             <button
               onClick={() => setShowHelp(true)}
-              className={`p-1.5 pr-3 pl-2.5 hover:bg-black/10 rounded-r-full transition-colors`}
+              className={`p-1.5 pr-2 sm:pr-3 pl-1.5 sm:pl-2.5 hover:bg-black/10 rounded-r-full transition-colors`}
               title="How to connect"
             >
               <HelpCircle size={18} />
@@ -187,7 +187,7 @@ function AppContent() {
           <button
             onClick={handleSyncToDevice}
             disabled={!isConnected || isSyncing}
-            className={`flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold transition-all
+            className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all shrink-0
               ${!isConnected
                 ? 'opacity-50 cursor-not-allowed bg-blue-100 text-blue-400'
                 : isSyncing
@@ -195,15 +195,15 @@ function AppContent() {
                   : 'bg-blue-600 text-white hover:bg-blue-700 shadow-md hover:shadow-lg'}`}
           >
             <RefreshCw size={16} className={isSyncing ? "animate-spin" : ""} />
-            Sync to Device
+            <span className="hidden sm:inline">Sync</span>
           </button>
         </div>
       </header>
 
       {/* Main Workspace */}
-      <main className="flex-1 flex overflow-hidden">
+      <main className="flex-1 flex flex-col md:flex-row overflow-y-auto md:overflow-hidden relative">
         <SidebarLeft />
-        <div className="flex-1 flex items-center justify-center p-6 relative">
+        <div className="flex-1 flex items-center justify-center p-4 sm:p-6 relative min-h-[400px]">
           <Macropad />
         </div>
         <SidebarRight />
@@ -245,11 +245,11 @@ function AppContent() {
       )}
 
       {/* Footer */}
-      <footer className="h-10 bg-white border-t border-zinc-200 flex items-center justify-between px-6 z-30 text-xs text-zinc-500 shadow-[0_-1px_2px_rgba(0,0,0,0.02)] shrink-0">
-        <div>
+      <footer className="h-auto sm:h-10 py-2 sm:py-0 bg-white border-t border-zinc-200 flex flex-col sm:flex-row items-center justify-center sm:justify-between px-4 sm:px-6 z-30 text-[10px] sm:text-xs text-zinc-500 shadow-[0_-1px_2px_rgba(0,0,0,0.02)] shrink-0 gap-1 sm:gap-0">
+        <div className="text-center sm:text-left">
           &copy; 2026 <a href="https://www.makerbrains.com/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">Maker Brains</a>. All rights reserved. | contact: <a href="mailto:mukeshdiy1@gmail.com" className="hover:text-blue-600 transition-colors">mukeshdiy1@gmail.com</a>
         </div>
-        <div>
+        <div className="text-center sm:text-right">
           Made with <span className="text-red-500">❤️</span> by <a href="https://www.linkedin.com/in/mukeshsankhla/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">Mukesh Sankhla</a>
         </div>
       </footer>

@@ -96,7 +96,7 @@ export const SidebarRight = () => {
 
 
   return (
-    <div className="w-80 bg-white border-l border-zinc-200 h-full flex flex-col shadow-sm z-20 overflow-y-auto">
+    <div className="w-full md:w-80 bg-white border-t md:border-t-0 md:border-l border-zinc-200 h-auto md:h-full shrink-0 flex flex-col shadow-sm z-20 overflow-y-auto">
       <div className="p-4 border-b border-zinc-100 bg-zinc-50/50">
         <h2 className="font-bold text-zinc-800 text-sm tracking-wide uppercase">Properties</h2>
       </div>
